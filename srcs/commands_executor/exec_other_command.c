@@ -6,7 +6,7 @@
 /*   By: jchakir <jchakir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 22:44:35 by jchakir           #+#    #+#             */
-/*   Updated: 2022/04/21 01:40:50 by jchakir          ###   ########.fr       */
+/*   Updated: 2022/04/23 01:21:51 by jchakir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,9 @@ static void	execut_command(char *cmd_path, char **args, char **envs, int fds[2])
 		custom_msg_then_perror(DUP2_ERROR);
 		exit (1);
 	}
-	if (execve(cmd_path, args, envs) < 0)
-	{
-		custom_msg_then_perror(args[0]);
-		exit(1);
-	}
+	execve(cmd_path, args, envs);
+	custom_msg_then_perror(args[0]);
+	exit(127);
 }
 
 void	get_cmd_full_path_then_exec_it(t_cmd_data *cmd_data, int outfd)

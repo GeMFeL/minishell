@@ -6,7 +6,7 @@
 /*   By: jchakir <jchakir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 18:22:35 by jchakir           #+#    #+#             */
-/*   Updated: 2022/04/10 23:16:04 by jchakir          ###   ########.fr       */
+/*   Updated: 2022/04/23 01:19:52 by jchakir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	builtin_cmd__echo_(t_builtin_cmd_data *data)
 	data->ext_stts = 0;
 	if (data->args[0] == NULL)
 	{
-		write(1, "\n", 1);
+		write(data->outfd, "\n", 1);
 		return ;
 	}
 	len = 0;

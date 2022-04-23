@@ -6,7 +6,7 @@
 /*   By: jchakir <jchakir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 03:26:03 by jchakir           #+#    #+#             */
-/*   Updated: 2022/04/18 01:25:14 by jchakir          ###   ########.fr       */
+/*   Updated: 2022/04/23 01:36:01 by jchakir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,11 @@ static void	dir_checker__telda__(char *dirname, t_builtin_cmd_data *data)
 			dirname = ft_strdup(".");
 		directory_exist_or_not(dirname, data);
 		free(dirname);
+	}
+	else
+	{
+		data->ext_stts = 1;
+		put_custom_error("cd: ", "HOME not set");
 	}
 }
 
