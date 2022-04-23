@@ -6,7 +6,7 @@
 /*   By: jchakir <jchakir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:09:27 by jchakir           #+#    #+#             */
-/*   Updated: 2022/04/18 01:17:44 by jchakir          ###   ########.fr       */
+/*   Updated: 2022/04/23 01:50:33 by jchakir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,11 @@ static void	_cd__dirname_as_telda(char *dirname, t_builtin_cmd_data *data, \
 			dirname = ft_strjoin(home->value, dirname + 1);
 	}
 	else
+	{
 		dirname = ft_strdup(".");
+		data->ext_stts = 1;
+		put_custom_error("cd: ", "HOME not set");
+	}
 	if (! _cd__chdir_and_modify_env(dirname, data->env, pwd, old_pwd))
 		data->ext_stts = 1;
 	free(dirname);
