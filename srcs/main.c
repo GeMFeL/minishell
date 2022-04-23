@@ -6,7 +6,7 @@
 /*   By: jchakir <jchakir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 15:05:47 by adouib            #+#    #+#             */
-/*   Updated: 2022/04/21 21:39:06 by jchakir          ###   ########.fr       */
+/*   Updated: 2022/04/23 02:28:32 by jchakir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*prompt(void)
 	{
 		ctrl_c.sa_handler = sig_hundler__ctrl_c__before_readline;
 		sigaction(SIGINT, &ctrl_c, NULL);
-		input = readline(BGRN "minishell-1.0" RESET "$ ");
+		input = readline(BGRN "╭─minishell-1.0\n╰─➤" RESET "$ ");
 		ctrl_c.sa_handler = sig_hundler__ctrl_c__after_readline;
 		sigaction(SIGINT, &ctrl_c, NULL);
 		if (input == NULL)
